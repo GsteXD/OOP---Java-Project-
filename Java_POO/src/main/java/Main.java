@@ -33,7 +33,7 @@ public class Main{
 
             Consulta c1 = new Consulta(1,98, 11, m1, p1, "dor no pé", "cancêr");
 
-            Receita re1 = new Receita(1, c1, 02333333, "Medicina pra dor no pé");
+            Receita re1 = new Receita(1, c1, "02333333", "Medicina pra dor no pé");
 
             Exame e1 = new Exame(1, c1, 23033333, "qedqae");
 

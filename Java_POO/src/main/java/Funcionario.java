@@ -1,30 +1,9 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
-public class Funcionario {
+/*Atribuindo uma classe abstrata, logo só realiza get and set*/
+public abstract class Funcionario {
     private int codigo;
     private String nome;
     private String telefone;
     private String senha;
-
-    public Funcionario() {
-    }
-
-    public Funcionario(int codigo, String nome, String telefone, String senha) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.senha = senha;
-    }
-
-    public void Mostrar() {
-        System.out.println(
-                "Funcionário:" +
-                        "\n Código: " + codigo +
-                        "\n Nome: " + nome +
-                        "\n Telefone: " + telefone +
-                        "\n Senha: " + senha
-        );
-    }
 
     //Getters
     public int getCodigo() {
@@ -61,15 +40,13 @@ public class Funcionario {
     }
 
     /*----------------------*/
-
     public void acessar(Receita receita, Exame exame, Paciente paciente, Consulta consulta) {
         //TODO
-        receita.getData();
-        receita.getConsulta();
-        receita.getDescritivo();
-        exame.getData();
-        exame.getConsulta();
-        exame.getDescritivo();
+        System.out.println(receita.getData());
+        System.out.println(receita.getDescritivo());
+        System.out.println(exame.getData());
+        System.out.println(exame.getConsulta());
+        System.out.println(exame.getDescritivo());
         /*---------------------*/
         paciente.getNome();
         paciente.getCpf();
@@ -82,4 +59,5 @@ public class Funcionario {
         consulta.getMotivo();
         consulta.getPaciente();
     }
+
 }

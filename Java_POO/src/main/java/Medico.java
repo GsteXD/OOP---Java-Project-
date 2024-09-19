@@ -3,9 +3,12 @@ public class Medico extends Funcionario{
     private String crm;
 
     public Medico(int codigo, String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
-        super(codigo, nome, telefone, senha);
+        setCodigo(codigo);
+        setNome(nome);
+        setTelefone(telefone);
         setCrm(crm);
         setEspecialidade(especialidade);
+        setSenha(senha);
     }
 
     public String getCrm() {
@@ -33,14 +36,21 @@ public class Medico extends Funcionario{
     }
 
     //----------------------------------------------------------------------
+    public void receitar(Consulta obj) throws Exception{
+        Receita new_Receita = new Receita();
+        obj.getReceitas();
+
+    }
+
 
     public void mostrar(){
         System.out.println("Médico:" +
+                "\n Código: " + getCodigo() +
                 "\n CRM: " + crm +
-                "\n Especialidade: " + especialidade
+                "\n Nome: " + getNome() +
+                "\n Especialidade: " + especialidade +
+                "\n Telefone: " + getTelefone() +
+                "\n Senha: " + getSenha()
         );
-
-        super.Mostrar();
     }
-
 }

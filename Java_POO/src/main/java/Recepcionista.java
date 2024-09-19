@@ -28,9 +28,10 @@ public class Recepcionista extends Funcionario{
 
     public void mostrar(){
         System.out.println("Recepcionista:" +
-                "\n Cpf: " + cpf
+                "\n Código" + getCodigo() +
+                "\n Nome: " + getNome() +
+                "\n Cpf: " + cpf +
+                "z"
         );
-
-        super.Mostrar();
     }
 }

@@ -1,6 +1,10 @@
+import java.util.List;
+
 public class Consulta extends Agenda{
     private String motivo;
     private String historico;
+    private List<Paciente> paciente;
+    private List<Agenda> agenda;
 
     public Consulta(int codigo, int data, int hora, Medico medico, Paciente paciente, String motivo, String historico) throws Exception{
         super(codigo, hora, data, medico, paciente);
