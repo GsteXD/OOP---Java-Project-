@@ -6,7 +6,7 @@ public class Agenda {
     private Paciente paciente;
 
     public Agenda() {
-        
+
     }
 
     public Agenda(int codigo, int hora, int data, Medico medico, Paciente paciente) throws Exception {
@@ -17,11 +17,11 @@ public class Agenda {
         setPaciente(paciente);
     }
 
-    private int getCodigo(){
+    public int getCodigo(){
         return codigo;
     }
 
-    private void setCodigo(int codigo) throws Exception {
+    public void setCodigo(int codigo) throws Exception {
         //TODO
         if(codigo == 0) {
             throw new Exception("Erro na implementação do código");

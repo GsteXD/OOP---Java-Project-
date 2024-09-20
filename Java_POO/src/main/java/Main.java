@@ -35,9 +35,9 @@ public class Main{
 
             Receita re1 = new Receita(1, c1, "02333333", "Medicina pra dor no pé");
 
-            Exame e1 = new Exame(1, c1, 23033333, "qedqae");
+            Exame e1 = new Exame(1, c1, "23033333", "qedqae");
 
-            Agenda a1 = new Agenda(1, 13, 01011, m1, p1);
+            //Agenda a1 = new Agenda(1, 13, 01011, m1, p1);
 
             p1.mostrar();
             p2.mostrar();

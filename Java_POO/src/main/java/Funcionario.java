@@ -40,24 +40,12 @@ public abstract class Funcionario {
     }
 
     /*----------------------*/
-    public void acessar(Receita receita, Exame exame, Paciente paciente, Consulta consulta) {
-        //TODO
-        System.out.println(receita.getData());
-        System.out.println(receita.getDescritivo());
-        System.out.println(exame.getData());
-        System.out.println(exame.getConsulta());
-        System.out.println(exame.getDescritivo());
-        /*---------------------*/
-        paciente.getNome();
-        paciente.getCpf();
-        paciente.getGenero();
-        paciente.getTelefone();
-        consulta.getData();
-        consulta.getHistorico();
-        consulta.getHora();
-        consulta.getMedico();
-        consulta.getMotivo();
-        consulta.getPaciente();
+    public void acessar(Paciente paciente) {
+        System.out.println("ACESSANDO INFO DO PACIENTE CÓDIGO " + paciente.getCodigo());
+        System.out.println("Nome: " + paciente.getNome());
+        System.out.println("Idade: " + paciente.getIdade());
+        System.out.println("CPF: " + paciente.getCpf());
+        System.out.println("Telefone: " + paciente.getTelefone());
     }
 
 }

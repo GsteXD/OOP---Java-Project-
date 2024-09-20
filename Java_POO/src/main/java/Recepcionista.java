@@ -27,11 +27,27 @@ public class Recepcionista extends Funcionario{
     //=================================================================
 
     public void mostrar(){
-        System.out.println("Recepcionista:" +
-                "\n Código" + getCodigo() +
-                "\n Nome: " + getNome() +
-                "\n Cpf: " + cpf +
-                "z"
-        );
+        System.out.println("RECEPCIONISTA>>>>>>>>>>>>>>>>");
+        System.out.println("codigo:"+ getCodigo());
+        System.out.println("nome:"+ getNome());
+        System.out.println("cpf:"+ getCpf());
+        System.out.println("telefone:"+ getTelefone());
+        System.out.println("senha:"+ getSenha());
+    }
+
+    public  void acessar(Paciente paciente, Consulta consulta){
+        super.acessar(paciente);
+        System.out.println("INFO CONSULTA : ----------------------");
+        System.out.println("Data: " + consulta.getData());
+        System.out.println("Histórico: " + consulta.getHistorico());
+        System.out.println("Paciente: " + consulta.getPaciente());
+        System.out.println("Médico " + consulta.getMedico());
+        System.out.println("Exames: " + consulta.getExames());
+
+    }
+
+    public void consultar() throws Exception {
+        Paciente obj = new Paciente("maria","345435","4555-3455","F",30);
+        obj.mostrar();
     }
 }

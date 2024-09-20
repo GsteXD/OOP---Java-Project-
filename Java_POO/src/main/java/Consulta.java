@@ -3,11 +3,31 @@ import java.util.List;
 public class Consulta extends Agenda{
     private String motivo;
     private String historico;
-    private List<Paciente> paciente;
-    private List<Agenda> agenda;
+    private List<Exame> exames;
+    private List<Receita> receitas;
+
+    public List<Receita> getReceitas() {
+        return receitas;
+    }
+
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
+    }
+
+    public List<Exame> getExames() {
+        return exames;
+    }
+
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
 
     public Consulta(int codigo, int data, int hora, Medico medico, Paciente paciente, String motivo, String historico) throws Exception{
-        super(codigo, hora, data, medico, paciente);
+        setCodigo(codigo);
+        setData(data);
+        setHora(hora);
+        setMedico(medico);
+        setPaciente(paciente);
         setMotivo(motivo);
         setHistorico(historico);
     }
@@ -58,10 +78,19 @@ public class Consulta extends Agenda{
     }
 
     public void mostrar(){
-        System.out.println("Consulta:" +
-                "\n Motivo: " + motivo +
-                "\n Histórico: " + historico
-        );
-        super.Mostrar();
+        System.out.println("CONSULTA>>>>>>>>>>>>>>>>");
+        System.out.println("codigo:"+ getCodigo());
+        System.out.println("data:"+ getData());
+        System.out.println("hora:"+ getHora());
+        getMedico().mostrar();
+        getPaciente().mostrar();
+        System.out.println("motivo:"+ getMotivo());
+        System.out.println("historico:"+ getHistorico());
+        for (Receita obj: getReceitas()) {
+            obj.mostrar();
+        }
+        for(Exame obj: getExames()){
+            obj.mostrar();
+        }
     }
 }

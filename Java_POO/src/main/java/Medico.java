@@ -37,11 +37,21 @@ public class Medico extends Funcionario{
 
     //----------------------------------------------------------------------
     public void receitar(Consulta obj) throws Exception{
-        Receita new_Receita = new Receita();
-        obj.getReceitas();
+        Receita novaReceita = new Receita(1, obj,"2024-10-09", "dipirona");
+        obj.getReceitas().add(novaReceita);
+
+        Exame novoExame = new Exame(1, obj,"2024-09-12", "Raio x torax");
+        obj.getExames().add(novoExame);
 
     }
 
+    public void acessar(Paciente paciente, Exame exame){
+        super.acessar(paciente);
+        System.out.println("INFO EXAME : ----------------------");
+        System.out.println("Código " + exame.getCodigo());
+        System.out.println("Data: " + exame.getData());
+        System.out.println("Descritivo: " + exame.getDescritivo());
+    }
 
     public void mostrar(){
         System.out.println("Médico:" +
