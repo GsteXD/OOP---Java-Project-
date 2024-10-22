@@ -1,7 +1,11 @@
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Scanner;
 
 public class Paciente {
-    private static AtomicInteger codigo = new AtomicInteger();
+    //Criando um ID estático para Paciente
+    public static AtomicInteger codigo = new AtomicInteger(0);
+    public static Scanner scanner = new Scanner(System.in);
+    private int pacienteCodigo;
 
     private String nome;
     private String genero;
@@ -9,27 +13,20 @@ public class Paciente {
     private String cpf;
     private int idade;
 
-    public Paciente( String nome, String genero, String telefone, String cpf, int idade) throws Exception {
+    public Paciente(String nome, String genero, String telefone, String cpf, int idade) throws Exception {
+        this.pacienteCodigo = codigo.incrementAndGet();
         setNome(nome);
         setIdade(idade);
         setGenero(genero);
         setTelefone(telefone);
         setCpf(cpf);
     }
+    public Paciente() throws Exception{
 
-    public AtomicInteger getCodigo() {
-        codigo.getAndIncrement();
-        return codigo;
     }
 
-    public void setCodigo(AtomicInteger codigo) throws NullPointerException{
-        //TODO
-        codigo.getAndIncrement();
-        if(codigo == null) {
-            throw new NullPointerException("Erro na implementação do código");
-        } else {
-            this.codigo = codigo;
-        }
+    public int getCodigo() {
+        return pacienteCodigo;
     }
 
     public String getNome() {
@@ -37,12 +34,10 @@ public class Paciente {
     }
 
     public void setNome(String nome) throws Exception{
-        //TODO
-        if(nome == "") {
-            throw new Exception("Nome nulo");
-        } else {
-            this.nome = nome;
+        if(nome.isEmpty() || !nome.matches("^[a-zA-Z\\s]+$")) {
+            throw new Exception("Nome inválido");
         }
+        this.nome = nome;
     }
 
     public String getGenero() {
@@ -51,11 +46,10 @@ public class Paciente {
 
     public void setGenero(String genero)  throws Exception{
         //TODO
-        if(genero == "") {
+        if(!genero.matches("^(M|F|O)$")) {
             throw new Exception("Genero nulo");
-        } else {
-            this.genero = genero;
         }
+        this.genero = genero;
     }
 
     public String getTelefone() {
@@ -64,11 +58,10 @@ public class Paciente {
 
     public void setTelefone(String telefone) throws Exception{
         //TODO
-        if(telefone == "") {
+        if(!telefone.matches("^\\d{10,11}$")) {
             throw new Exception("Telefone inválido");
-        } else {
-            this.telefone = telefone;
         }
+        this.telefone = telefone;  
     }
 
     public String getCpf() {
@@ -92,15 +85,32 @@ public class Paciente {
         //TODO
         if(idade < 0) {
             throw new Exception("Idade inválida");
-        } else {
-            this.idade = idade;
         }
+        this.idade = idade;
     }
     //-----------------------------------------------------------------------//
-    public void cadastrar(){
-        //TODO
 
-
+    //Pega os inputs colocado pelo usuário de maneira menos repetitiva em "cadastrar"
+    private String getInput(String message){
+        System.out.println(message);
+        return scanner.nextLine();
+    }
+    private int getIntInput(String message){
+        while (true) {
+            System.out.println(message);
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: por favor, insira um número válido.");
+            }
+        }
+    }
+    public void cadastrar() throws Exception{
+        setNome(getInput("Informe o nome do paciente: "));
+        setTelefone(getInput("Informe o telefone do paciente: "));
+        setCpf(getInput("Informe o CPF do paciente: "));
+        setIdade(getIntInput("Informe a idade do paciente(apenas números): "));
+        setGenero(getInput("Informe o gênero do paciente(M/F/O): "));
     }
 
     public void consultar(){

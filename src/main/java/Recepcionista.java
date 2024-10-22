@@ -46,8 +46,7 @@ public class Recepcionista extends Funcionario{
 
     }
 
-    public void consultar() throws Exception {
-        Paciente obj = new Paciente("maria","345435","4555-3455","F",30);
+    public void consultar(Paciente obj) throws Exception {
         obj.mostrar();
     }
 }
