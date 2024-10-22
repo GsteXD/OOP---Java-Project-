@@ -22,7 +22,7 @@ public abstract class Procedimento {
         return data;
     }
 
-    public void setData(String Data) throws Exception {
+    public void setData(String data) throws Exception {
         //TODO
         if(data == ""){
             throw new Exception("Data inválida");
