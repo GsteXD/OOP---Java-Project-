@@ -1,9 +1,15 @@
+package Classes;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Medico extends Funcionario{
+    private AtomicInteger codigo = new AtomicInteger(0);
+    private int medicoCodigo;
     private String especialidade;
     private String crm;
 
-    public Medico(int codigo, String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
-        setCodigo(codigo);
+    public Medico(String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
+        setCodigo(medicoCodigo);
         setNome(nome);
         setTelefone(telefone);
         setCrm(crm);
@@ -11,10 +17,20 @@ public class Medico extends Funcionario{
         setSenha(senha);
     }
 
-    public String getCrm() {
+    //Getters
+    public int getCodigo(){
+        return medicoCodigo;
+    }
+    public String getCrm(){
         return crm;
     }
-
+    public String getEspecialidade(){
+        return especialidade;
+    }
+    //Setters
+    public void setCodigo(int medicoCodigo){
+        this.medicoCodigo = codigo.getAndIncrement();
+    }
     public void setCrm(String crm) throws Exception{
         if(crm == ""){
             throw new Exception("CRM nulo");
@@ -22,11 +38,6 @@ public class Medico extends Funcionario{
             this.crm = crm;
         }
     }
-
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
     public void setEspecialidade(String especialidade) throws Exception{
         if(especialidade == ""){
             throw new Exception("Especialidade inválida");

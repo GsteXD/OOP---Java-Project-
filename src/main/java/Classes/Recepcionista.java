@@ -1,20 +1,29 @@
-import jdk.swing.interop.SwingInterOpUtils;
+package Classes;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Recepcionista extends Funcionario{
+    private AtomicInteger codigo = new AtomicInteger(0);
     private String cpf;
+    private int recepcionistaCodigo;
 
-    public Recepcionista(int codigo, String nome, String cpf, String telefone, String senha) throws Exception {
-        setCodigo(codigo);
+    public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
+        setCodigo(recepcionistaCodigo);
         setNome(nome);
         setCpf(cpf);
         setTelefone(telefone);
         setSenha(senha);
     }
 
-    public String getCpf() {
+    public int getCodigo(){
+        return recepcionistaCodigo;
+    }
+    public String getCpf(){
         return cpf;
     }
 
+    public void setCodigo(int recepcionistaCodigo) throws Exception{
+        this.recepcionistaCodigo = codigo.getAndIncrement();
+    }
     public void setCpf(String cpf) throws Exception{
         //TODO
         if(cpf == "") {

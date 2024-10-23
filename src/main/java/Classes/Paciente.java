@@ -1,3 +1,4 @@
+package Classes;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Scanner;
 

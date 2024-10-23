@@ -1,3 +1,4 @@
+package Classes;
 public class Agenda {
     private int codigo;
     private int hora;

@@ -1,3 +1,4 @@
+package Classes;
 public class Receita extends Procedimento{
 
     public Receita() {

@@ -1,3 +1,4 @@
+package Classes;
 public class Exame extends Procedimento{
 
     public Exame(){
